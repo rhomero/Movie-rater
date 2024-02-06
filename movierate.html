@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="movierate.css">
 </head>
 <body>
+    <h1>Movie Rater</h1>
+    <h2>Rate your favorite movies</h2>
     <form id="form">
-        <input type="text"id="name" name="movie_name" />
+        <input type="text"id="name" name="movie_name" placeholder="Movie Title" />
         <select id="rating" name="quantity">
+            <option value=""></option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -32,12 +36,14 @@
         let nameVal = $('#name').val();
         let ratingVal = $('#rating').val(); 
         let listItem = $("<li>").text(nameVal + " " + ratingVal+"/10")
-          let deleteButt = $("<button>").text("X");
+          let deleteButt = $("<button>").text("X").addClass("delete-button");;
             deleteButt.click(function() {
             $(this).parent().remove();
             });
         listItem.append(deleteButt);
         $('ul').append(listItem);
+        $('#name').val(""); // Clear the name input field
+        $('#rating').val(""); // Clear the rating input field
 
        
 
